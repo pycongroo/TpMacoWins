@@ -1,6 +1,7 @@
 
 public class Prenda {
 	
+	//precio base seteado al crear objeto
 	private Float precioBase;
 	private Boolean importado;
 	
@@ -14,6 +15,7 @@ public class Prenda {
 	}
 
 	public Float tasaImportacion(){
+		//retorna porcentaje de aumento 
 		if (importado){
 			return (float) 1.3;
 		}
