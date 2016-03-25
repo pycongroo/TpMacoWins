@@ -10,11 +10,16 @@ public class MacoWins {
 		this.valorFijo =valorFijo;
 	}
 	
+	public void vender(Prenda prenda, Integer cantidad, String fecha){
+		Venta venta = new Venta(prenda, cantidad, fecha);
+		this.ventas.add(venta);
+	}
+	
 	public Float gananciasDelDia(String fecha){
 		List<Float> listaVentasDelDia = (List<Float>)
 			this.ventas.stream()
 			.filter((Venta venta) -> venta.getFecha() == fecha)
-			.map((Venta venta) -> venta.gananciaDeVenta())
+			.map((Venta venta) -> venta.ganancia())
 			.collect(Collectors.toList());
 		return this.sumatoriaFloat(listaVentasDelDia);
 	}

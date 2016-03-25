@@ -23,7 +23,7 @@ public class Venta {
 		return fecha;
 	}
 	
-	public Float gananciaDeVenta(){
+	public Float ganancia(){
 		return this.prenda.precioFinal() * this.cantidad;
 	}
 }
