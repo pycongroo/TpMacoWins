@@ -1,32 +1,46 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class MacoWins {
 	
-	private Float valorFijo;//valor determinado para todas las prendas
+	private Double valorFijo;//valor determinado para todas las prendas
 	private List<Venta> ventas;//coleccion de ventas
 	
-	public MacoWins(Float valorFijo){
+	public MacoWins(Double valorFijo){
 		this.valorFijo =valorFijo;
+		this.ventas = new ArrayList<Venta>();
 	}
 	
+	public Double getValorFijo() {
+		return this.valorFijo;
+	}
+
 	public void vender(Prenda prenda, Integer cantidad, String fecha){
 		Venta venta = new Venta(prenda, cantidad, fecha);
+		//salida en pantalla para verificar inicializacion
+		//System.out.println(venta.toString());
 		this.ventas.add(venta);
 	}
 	
-	public Float gananciasDelDia(String fecha){
-		List<Float> listaVentasDelDia = (List<Float>)
+	public Double gananciasDelDia(String fecha){
+		List<Double> listaVentasDelDia = (List<Double>)
 			this.ventas.stream()
 			.filter((Venta venta) -> venta.getFecha() == fecha)
 			.map((Venta venta) -> venta.ganancia())
 			.collect(Collectors.toList());
-		return this.sumatoriaFloat(listaVentasDelDia);
+		return this.sumatoriaDouble(listaVentasDelDia);
 	}
 	
-	private Float sumatoriaFloat(List<Float> lista){
-		Float acum = (float) 0.0;
-		for (Float num:lista){
+	public List<Venta> ventasDePrendasImportadas(){
+		return (List<Venta>) this.ventas.stream()
+				.filter((Venta venta) -> venta.tienePrendasImportadas())
+				.collect(Collectors.toList());
+	}
+	
+	private Double sumatoriaDouble(List<Double> lista){
+		Double acum = 0.0;
+		for (Double num:lista){
 			acum += num;
 		}
 		return acum;

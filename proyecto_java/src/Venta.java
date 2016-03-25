@@ -23,7 +23,16 @@ public class Venta {
 		return fecha;
 	}
 	
-	public Float ganancia(){
+	public Double ganancia(){
 		return this.prenda.precioFinal() * this.cantidad;
+	}
+	
+	public String toString(){
+		return "Prenda: unaprenda\n"
+				+ "Cantidad: "+ this.getCantidad().toString() + 
+				"\nFecha: " + this.getFecha();
+	}
+	public Boolean tienePrendasImportadas(){
+		return this.prenda.esImportado();
 	}
 }
