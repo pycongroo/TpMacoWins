@@ -2,7 +2,6 @@
 public abstract class Prenda {
 	
 	private Double precioBase;
-	private Boolean importado;
 	private static Double valorFijoDeNegocio;
 	
 	public Prenda(Double precioBase) {
