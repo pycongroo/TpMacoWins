@@ -1,5 +1,3 @@
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,9 +9,9 @@ public class MacoWinsTest {
 	public void init(){
 		macowins = new MacoWins(100.0);
 		Prenda.setValorFijoDeNegocio(macowins.getValorFijo());
-		Prenda saco = new Prenda(300.0, true);
-		Prenda pantalon = new Prenda(250.0, false);
-		Prenda camisa = new Prenda(200.0, true);
+		Prenda saco = new PrendaImportada(300);
+		Prenda pantalon = new PrendaNacional(250);
+		Prenda camisa = new PrendaImportada(200);
 		macowins.vender(saco, 2, "21/03/2016");
 		macowins.vender(pantalon, 1, "21/03/2016");
 		macowins.vender(camisa, 4, "21/02/2016");

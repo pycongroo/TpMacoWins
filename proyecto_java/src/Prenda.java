@@ -1,18 +1,16 @@
 
-public class Prenda {
+public abstract class Prenda {
 	
 	private Double precioBase;
 	private Boolean importado;
 	private static Double valorFijoDeNegocio;
 	
-	public Prenda(Double precioBase, Boolean importado) {
+	public Prenda(Double precioBase) {
 		this.precioBase = precioBase;
-		this.importado = importado;
 	}
 	
-	public Prenda(Integer precioBase, Boolean importado) {
+	public Prenda(Integer precioBase) {
 		this.precioBase = precioBase.doubleValue();
-		this.importado = importado;
 	}
 	
 	public static void setValorFijoDeNegocio(Double valorFijoDeNegocio) {
@@ -23,22 +21,11 @@ public class Prenda {
 		return precioBase;
 	}
 
-	public Double tasaImportacion(){
-		//retorna porcentaje de aumento 
-		if (this.importado){
-			return 1.3;
-		}
-		else {
-			return 1.0;
-		}
-	}
+	public abstract Double tasaImportacion();
 	
 	public Double precioFinal(){
 		return (Prenda.valorFijoDeNegocio + this.precioBase) * this.tasaImportacion();
 	}
 	
-	public Boolean esImportado(){
-		return this.importado;
-	}
-	
+	public abstract Boolean esImportado();
 }
