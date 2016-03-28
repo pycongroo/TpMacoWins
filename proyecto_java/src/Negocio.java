@@ -3,32 +3,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MacoWins {
+public class Negocio {
 	
 	private Double valorFijo;//valor determinado para todas las prendas
 	private List<Venta> ventas;//coleccion de ventas
-	private static HashMap<String, Double> tipoPrendas;
+	private HashMap<String, Double> tipoPrendas;
 	
-	public MacoWins(Double valorFijo){
+	public Negocio(Double valorFijo){
 		this.valorFijo =valorFijo;
 		this.ventas = new ArrayList<Venta>();
-		MacoWins.tipoPrendas = new HashMap<String, Double>();
+		this.tipoPrendas = new HashMap<String, Double>();
 	}
 	
 	public Double getValorFijo() {
 		return this.valorFijo;
 	}
 	
-	public static void addPrenda(String nombre, Double precioBase){
-		MacoWins.tipoPrendas.put(nombre, precioBase);
+	public void addPrenda(String nombre, Double precioBase){
+		this.tipoPrendas.put(nombre, precioBase);
 	}
 	
-	public static void addPrenda(String nombre, Integer precioBase){
-		MacoWins.tipoPrendas.put(nombre, Double.valueOf(precioBase));
+	public void addPrenda(String nombre, Integer precioBase){
+		this.tipoPrendas.put(nombre, Double.valueOf(precioBase));
 	}
 	
-	public static Double getPrecioBase(String tipoPrenda){
-		return MacoWins.tipoPrendas.get(tipoPrenda);
+	public Double getPrecioBase(String tipoPrenda){
+		return this.tipoPrendas.get(tipoPrenda);
 	}
 
 	public void vender(Prenda prenda, Integer cantidad, String fecha){
@@ -42,7 +42,7 @@ public class MacoWins {
 		List<Double> listaVentasDelDia = (List<Double>)
 			this.ventas.stream()
 			.filter((Venta venta) -> venta.getFecha() == fecha)
-			.map((Venta venta) -> venta.ganancia())
+			.map((Venta venta) -> venta.gananciaEn(this))
 			.collect(Collectors.toList());
 		return this.sumatoriaDouble(listaVentasDelDia);
 	}

@@ -2,19 +2,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MacoWinsTest {
-	private MacoWins macowins;
+public class NegocioTest {
+	private Negocio macowins;
 
 	@Before
 	public void init(){
 		//Seteo valorFijo
-		macowins = new MacoWins(100.0);
-		//Seteo en valorFijo a las prendas
-		Prenda.setValorFijoDeNegocio(macowins.getValorFijo());
+		macowins = new Negocio(100.0);
 		//Seteo precioBase de prendas
-		MacoWins.addPrenda("saco", 300);
-		MacoWins.addPrenda("pantalon", 250);
-		MacoWins.addPrenda("camisa", 200);
+		macowins.addPrenda("saco", 300);
+		macowins.addPrenda("pantalon", 250);
+		macowins.addPrenda("camisa", 200);
+		//seteo las prendas
 		Prenda saco = new PrendaImportada("saco");
 		Prenda pantalon = new PrendaNacional("pantalon");
 		Prenda camisa = new PrendaImportada("camisa");

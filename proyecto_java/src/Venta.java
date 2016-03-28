@@ -23,8 +23,8 @@ public class Venta {
 		return fecha;
 	}
 	
-	public Double ganancia(){
-		return this.prenda.precioFinal() * this.cantidad;
+	public Double gananciaEn(Negocio negocio){
+		return this.prenda.precioFinalEn(negocio) * this.cantidad;
 	}
 	
 	public String toString(){
@@ -32,7 +32,9 @@ public class Venta {
 				+ "Cantidad: "+ this.getCantidad().toString() + 
 				"\nFecha: " + this.getFecha();
 	}
+	
 	public Boolean tienePrendasImportadas(){
 		return this.prenda.esImportado();
 	}
+	
 }

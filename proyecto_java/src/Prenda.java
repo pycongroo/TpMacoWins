@@ -1,25 +1,20 @@
 
 public abstract class Prenda {
 	
-	private Double precioBase;
-	private static Double valorFijoDeNegocio;
+	private String tipoPrenda;
 	
 	public Prenda(String tipoPrenda) {
-		this.precioBase = MacoWins.getPrecioBase(tipoPrenda);
+		this.tipoPrenda = tipoPrenda;
 	}
 	
-	public static void setValorFijoDeNegocio(Double valorFijoDeNegocio) {
-		Prenda.valorFijoDeNegocio = valorFijoDeNegocio;
-	}
-
-	public Double getPrecioBase() {
-		return precioBase;
+	private Double getPrecioBaseEn(Negocio negocio) {
+		return negocio.getPrecioBase(this.tipoPrenda);
 	}
 
 	public abstract Double tasaImportacion();
 	
-	public Double precioFinal(){
-		return (Prenda.valorFijoDeNegocio + this.precioBase) * this.tasaImportacion();
+	public Double precioFinalEn(Negocio negocio){
+		return (negocio.getValorFijo() + this.getPrecioBaseEn(negocio)) * this.tasaImportacion();
 	}
 	
 	public abstract Boolean esImportado();
