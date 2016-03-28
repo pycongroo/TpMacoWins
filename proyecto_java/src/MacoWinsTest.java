@@ -7,11 +7,17 @@ public class MacoWinsTest {
 
 	@Before
 	public void init(){
+		//Seteo valorFijo
 		macowins = new MacoWins(100.0);
+		//Seteo en valorFijo a las prendas
 		Prenda.setValorFijoDeNegocio(macowins.getValorFijo());
-		Prenda saco = new PrendaImportada(300);
-		Prenda pantalon = new PrendaNacional(250);
-		Prenda camisa = new PrendaImportada(200);
+		//Seteo precioBase de prendas
+		MacoWins.addPrenda("saco", 300);
+		MacoWins.addPrenda("pantalon", 250);
+		MacoWins.addPrenda("camisa", 200);
+		Prenda saco = new PrendaImportada("saco");
+		Prenda pantalon = new PrendaNacional("pantalon");
+		Prenda camisa = new PrendaImportada("camisa");
 		macowins.vender(saco, 2, "21/03/2016");
 		macowins.vender(pantalon, 1, "21/03/2016");
 		macowins.vender(camisa, 4, "21/02/2016");

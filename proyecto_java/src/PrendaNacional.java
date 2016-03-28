@@ -1,12 +1,8 @@
 
 public class PrendaNacional extends Prenda{
 
-	public PrendaNacional(Double precioBase) {
-		super(precioBase);
-	}
-	
-	public PrendaNacional(Integer precioBase) {
-		super(precioBase);
+	public PrendaNacional(String tipoPrenda) {
+		super(tipoPrenda);
 	}
 
 	public Double tasaImportacion() {
