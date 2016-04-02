@@ -1,7 +1,7 @@
 
 public class PrendaImportada extends Prenda{
 
-	public PrendaImportada(String tipoPrenda) {
+	public PrendaImportada(TipoPrenda tipoPrenda) {
 		super(tipoPrenda);
 	}
 

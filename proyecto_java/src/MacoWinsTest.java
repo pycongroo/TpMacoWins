@@ -11,13 +11,13 @@ public class MacoWinsTest {
 		macowins = new MacoWins(100.0);
 		//Seteo en valorFijo a las prendas
 		Prenda.setValorFijoDeNegocio(macowins.getValorFijo());
-		//Seteo precioBase de prendas
-		MacoWins.addPrenda("saco", 300);
-		MacoWins.addPrenda("pantalon", 250);
-		MacoWins.addPrenda("camisa", 200);
-		Prenda saco = new PrendaImportada("saco");
-		Prenda pantalon = new PrendaNacional("pantalon");
-		Prenda camisa = new PrendaImportada("camisa");
+		//Seteo los tipoPrenda
+		TipoPrenda tipoSaco = new TipoPrenda("saco", 300);
+		TipoPrenda tipoPantalon = new TipoPrenda("pantalon", 250);
+		TipoPrenda tipoCamisa = new TipoPrenda("c", 200);
+		Prenda saco = new PrendaImportada(tipoSaco);
+		Prenda pantalon = new PrendaNacional(tipoPantalon);
+		Prenda camisa = new PrendaImportada(tipoCamisa);
 		macowins.vender(saco, 2, "21/03/2016");
 		macowins.vender(pantalon, 1, "21/03/2016");
 		macowins.vender(camisa, 4, "21/02/2016");

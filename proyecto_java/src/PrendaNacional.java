@@ -1,7 +1,7 @@
 
 public class PrendaNacional extends Prenda{
 
-	public PrendaNacional(String tipoPrenda) {
+	public PrendaNacional(TipoPrenda tipoPrenda) {
 		super(tipoPrenda);
 	}
 
