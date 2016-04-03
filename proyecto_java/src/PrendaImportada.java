@@ -1,8 +1,8 @@
 
 public class PrendaImportada extends Prenda{
 
-	public PrendaImportada(TipoPrenda tipoPrenda) {
-		super(tipoPrenda);
+	public PrendaImportada(TipoPrenda tipoPrenda, Marca marca) {
+		super(tipoPrenda, marca);
 	}
 
 	public Double tasaImportacion() {

@@ -1,11 +1,13 @@
 
 public abstract class Prenda {
 	
+	private Marca marca;
 	private TipoPrenda tipoPrenda;
 	private static Double valorFijoDeNegocio;
 	
-	public Prenda(TipoPrenda tipoPrenda) {
+	public Prenda(TipoPrenda tipoPrenda, Marca marca) {
 		this.tipoPrenda = tipoPrenda;
+		this.marca = marca;
 	}
 	
 	public static void setValorFijoDeNegocio(Double valorFijoDeNegocio) {
@@ -15,7 +17,8 @@ public abstract class Prenda {
 	public abstract Double tasaImportacion();
 	
 	public Double precioFinal(){
-		return (Prenda.valorFijoDeNegocio + this.tipoPrenda.getPrecioBase()) * this.tasaImportacion();
+		Double precioOriginal = Prenda.valorFijoDeNegocio + this.tipoPrenda.precioBase();
+		return precioOriginal * this.tasaImportacion() * this.marca.coef(precioOriginal);
 	}
 	
 	public abstract Boolean esImportado();
