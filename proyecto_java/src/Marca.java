@@ -1,6 +1,6 @@
 
 public interface Marca {
 
-	public abstract Double coef(Double precioOriginal);
+	public abstract Double coeficienteDeMarca(Double precioOriginal);
 
 }

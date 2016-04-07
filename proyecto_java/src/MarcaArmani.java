@@ -1,7 +1,7 @@
 
 public class MarcaArmani implements Marca {
 
-	public Double coef(Double precioOriginal) {
+	public Double coeficienteDeMarca(Double precioOriginal) {
 		return 1.65;
 	}
 	

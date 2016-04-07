@@ -1,7 +1,7 @@
 
 public class MarcaSarkany implements Marca {
 
-	public Double coef(Double precioOriginal) {
+	public Double coeficienteDeMarca(Double precioOriginal) {
 		if (precioOriginal > 500){
 			return 1.35;
 		} else {

@@ -1,0 +1,1 @@
+INDEX VERSION 1.127+/home/danila/luis/TpMacoWins/.metadata/.plugins/org.eclipse.jdt.core

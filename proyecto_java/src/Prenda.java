@@ -17,8 +17,8 @@ public abstract class Prenda {
 	public abstract Double tasaImportacion();
 	
 	public Double precioFinal(){
-		Double precioOriginal = Prenda.valorFijoDeNegocio + this.tipoPrenda.precioBase();
-		return precioOriginal * this.tasaImportacion() * this.marca.coef(precioOriginal);
+		Double precioOriginal = (Prenda.valorFijoDeNegocio + this.tipoPrenda.precioBase()) * this.tasaImportacion();
+		return precioOriginal * this.marca.coeficienteDeMarca(precioOriginal);
 	}
 	
 	public abstract Boolean esImportado();
